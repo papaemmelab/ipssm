@@ -46,7 +46,7 @@ library("ipssm")
 path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm") 
 
 # call the IPSS-M wrapper function
-dd.res <- IPSSMwrapper(path.file)
+ddall <- IPSSMwrapper(path.file)
 ```
 
 
