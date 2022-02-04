@@ -25,6 +25,8 @@ IPSSMprocess <- function(patientInput,
 
    patientProcess <- patientInput
 
+   cat("Pre-processing your input data...\n")
+
    # Construction of SF3B1 features i.e SF3B1_5q | SF3B1_alpha 
    patientProcess$SF3B1_5q <- 0
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & patientProcess$del5q==1 & patientProcess$del7_7q==0 & patientProcess$complex==0)] <- 1
@@ -55,6 +57,8 @@ IPSSMprocess <- function(patientInput,
    res2 <- as.data.frame(t(apply(patientProcess[,genesRes, drop=F], 1, 
 				 function(x) calculateNres2(patientRes=x,genesRes=genesRes,Nref=Nref))))
    patientProcess <- cbind(patientProcess, res2)
+
+   cat("Success\n")
 
    return(patientProcess)
 

@@ -51,6 +51,7 @@ IPSSMmain <- function(patientProcess,
 		      risk.cat=c("Very Low","Low","Moderate Low","Moderate High","High","Very High")
 		      ) {
 
+   cat("Calculating IPSS-M ...\n")
    meanValuesShort <- meanValues[names(meanValues)!="nRes2"]
    lres <- lapply(1:nrow(patientProcess), function(i) {
 		     x <- patientProcess[i,]
@@ -86,6 +87,8 @@ IPSSMmain <- function(patientProcess,
    names(dcat) <- c("IPSSMcat_best","IPSSMcat_mean","IPSSMcat_worst")
 
    patientResult <- cbind(patientProcess, dscore, dcat)
+
+   cat("Sucess\n")
 
    return(patientResult)
 }
