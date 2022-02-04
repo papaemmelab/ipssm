@@ -45,7 +45,7 @@ Bernard E, Tuechler H, Greenberg PL, Hasserjian RP, Arango Ossa JE et al. **Mole
 
 ## :four_leaf_clover: Other
 
-In addition to the R package, you may be interested in checking out our [Online Web Calculator](https://mds-risk-model.com/)
+In addition to the R package, you may be interested in checking out our [Online Web Calculator](https://mds-risk-model.com/) with [Juan E Arango Ossa](https://github.com/juanesarango) as main developer. The github repo for the web calculator is [here](https://github.com/papaemmelab/mds-calculator).
 
 
 ## :question: Question
