@@ -43,6 +43,11 @@ dd.annot <- IPSSMannotate(dd.res)
 Bernard E, Tuechler H, Greenberg PL, Hasserjian RP, Arango Ossa JE et al. **Molecular International Prognostic Scoring System for myelodysplastic syndromes**. *under review*.
 
 
+## :four_leaf_clover: Other
+
+In addition to the R package, you may be interested in checking out our [Online Web Calculator](https://mds-risk-model.com/)
+
+
 ## :question: Question
 
 Any questions feel free to contact [ElsaB](https://elsab.github.io/).
