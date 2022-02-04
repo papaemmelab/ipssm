@@ -37,6 +37,18 @@ dd.res <- IPSSMmain(dd.process)
 dd.annot <- IPSSMannotate(dd.res)
 ```
 
+Alternatively the above steps can be performed with a one-line code using a wrapper function, as follows.
+
+```R
+# load the ipssm library
+library("ipssm")
+# path to your input data file
+path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm") 
+
+# call the IPSS-M wrapper function
+dd.res <- IPSSMwrapper(path.file)
+```
+
 
 ## :page_with_curl: Reference
 
