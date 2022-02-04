@@ -15,7 +15,7 @@ install_github("papaemmelab/ipssm")
 
 ## :boom: Usage
 
-The worflow below consists of 4 simple steps, namely 1) Read your input data file and perform some validation on the data, 2) Process the variables in a suitable format for the model, 2) Calculate the IPSS-M risk score and risk category (under the worst, mean, and best scenario to account for missing data), 4) Annotate the results.
+The worflow below consists of 4 simple steps, namely 1) Read your input data file and perform some validation on the data, 2) Process the variables in a suitable format for the model, 3) Calculate the IPSS-M risk score and risk category (under the best, mean, and worst scenario to account for missing data if there are some), 4) Annotate the results.
 
 ```R
 # load the ipssm library
@@ -37,6 +37,10 @@ dd.res <- IPSSMmain(dd.process)
 dd.annot <- IPSSMannotate(dd.res)
 ```
 
+
+## :page_with_curl: Reference
+
+Bernard E, Tuechler H, Greenberg PL, Hasserjian RP, Arango Ossa JE et al. **Molecular International Prognostic Scoring System for myelodysplastic syndromes**. *under review*.
 
 
 ## :question: Question
