@@ -71,7 +71,7 @@ IPSSMmain <- function(patientProcess,
 					 risk.cutpoints=risk.cutpoints,risk.cat=risk.cat
 		     )
 		     # Worst Scenario
-		     xworst <- FillScenario(x, imputeValues=bestValues, scenario="worst")
+		     xworst <- FillScenario(x, imputeValues=worstValues, scenario="worst")
 		     rworst <- IPSSMmodel(patientValues=xworst, betaValues=betaValues,meanValues=meanValues,
 					  rounding=rounding,rounding.digits=rounding.digits,
 					  risk.cutpoints=risk.cutpoints,risk.cat=risk.cat
