@@ -20,6 +20,7 @@ IPSSMprocess <- function(patientInput,
 				    "GATA2","GNB1","IDH1","NF1",
 				    "PHF6","PPM1D","PRPF8","PTPN11",
 				    "SETBP1","STAG2","WT1"),
+			 maxvafloh=0.55,
 			 Nref=0.3880
 			 ) {
 
@@ -28,22 +29,24 @@ IPSSMprocess <- function(patientInput,
    cat("Pre-processing your input data...\n")
 
    # Construction of SF3B1 features i.e SF3B1_5q | SF3B1_alpha 
-   patientProcess$SF3B1_5q <- 0
+   patientProcess$SF3B1_5q <- NA
+   patientProcess$SF3B1_5q[which(patientProcess$SF3B1==0)] <- 0
+   patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & (patientProcess$del5q==0 | patientProcess$del7_7q==1 | patientProcess$complex==1))] <- 0
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & patientProcess$del5q==1 & patientProcess$del7_7q==0 & patientProcess$complex==0)] <- 1
 
-   patientProcess$SF3B1_alpha <- 0
+   patientProcess$SF3B1_alpha <- NA
+   patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==0)] <- 0
+   patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==1 & (patientProcess$SF3B1_5q==1 |
+				    patientProcess$SRSF2==1 | patientProcess$STAG2==1 |
+				    patientProcess$BCOR==1 | patientProcess$BCORL1==1 |
+				    patientProcess$RUNX1==1 | patientProcess$NRAS==1))] <- 0
    patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==1 & patientProcess$SF3B1_5q==0 &
 				    patientProcess$SRSF2==0 & patientProcess$STAG2==0 &
 				    patientProcess$BCOR==0 & patientProcess$BCORL1==0 &
 				    patientProcess$RUNX1==0 & patientProcess$NRAS==0)] <- 1
 
    # Construction of TP53multi feature
-   patientProcess$TP53multi <- 0
-   patientProcess$TP53loh[which(patientProcess$TP53maxvaf>0.55 | patientProcess$del17_17p==1)] <- 1
-   patientProcess$TP53multi[which( (patientProcess$TP53mut%in%c("2 or more")) |
-				  (patientProcess$TP53mut%in%c("1","2 or more") & patientProcess$TP53loh==1))] <- 1
-
-   patientProcess$TP53loh[which(patientProcess$TP53maxvaf>0.55 | patientProcess$del17_17p==1)] <- 1
+   patientProcess$TP53loh[which(patientProcess$TP53maxvaf>maxvafloh | patientProcess$del17_17p==1)] <- 1 # inferred LOH
    patientProcess$TP53multi <- NA
    patientProcess$TP53multi[which( (patientProcess$TP53mut%in%c("0")) |
 				  (patientProcess$TP53mut%in%c("1") & patientProcess$TP53loh==0))] <- 0 # mono-allelic
