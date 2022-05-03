@@ -43,6 +43,13 @@ IPSSMprocess <- function(patientInput,
    patientProcess$TP53multi[which( (patientProcess$TP53mut%in%c("2 or more")) |
 				  (patientProcess$TP53mut%in%c("1","2 or more") & patientProcess$TP53loh==1))] <- 1
 
+   patientProcess$TP53loh[which(patientProcess$TP53maxvaf>0.55 | patientProcess$del17_17p==1)] <- 1
+   patientProcess$TP53multi <- NA
+   patientProcess$TP53multi[which( (patientProcess$TP53mut%in%c("0")) |
+				  (patientProcess$TP53mut%in%c("1") & patientProcess$TP53loh==0))] <- 0 # mono-allelic
+   patientProcess$TP53multi[which( (patientProcess$TP53mut%in%c("2 or more")) |
+				  (patientProcess$TP53mut%in%c("1","2 or more") & patientProcess$TP53loh==1))] <- 1 # multi-hit
+
    # Transformation of clinical variables
    patientProcess$HB1 <- pmin(pmax(4,patientProcess$HB),20) # within range 4-20 (very permissive)
    patientProcess$BLAST5 <- pmin(patientProcess$BM_BLAST,20)/5 # within range 0-20 i.e. MDS
