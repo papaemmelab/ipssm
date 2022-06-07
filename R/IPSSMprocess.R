@@ -30,7 +30,8 @@ IPSSMprocess <- function(patientInput,
 
    # Construction of SF3B1 features i.e SF3B1_5q | SF3B1_alpha 
    patientProcess$SF3B1_5q <- NA
-   patientProcess$SF3B1_5q[which(patientProcess$SF3B1==0)] <- 0
+   patientProcess$SF3B1_5q[which(patientProcess$SF3B1==0)] <- 0 # SF3B1 should be mutated for SF3B1_5q=1
+   patientProcess$SF3B1_5q[which(patientProcess$del5q==0)] <- 0 # del5q should be present for SF3B1_5q=1
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & (patientProcess$del5q==0 | patientProcess$del7_7q==1 | patientProcess$complex==1))] <- 0
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & patientProcess$del5q==1 & patientProcess$del7_7q==0 & patientProcess$complex==0)] <- 1
 
