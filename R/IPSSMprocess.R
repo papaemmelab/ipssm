@@ -31,16 +31,15 @@ IPSSMprocess <- function(patientInput,
    # Construction of SF3B1 features i.e SF3B1_5q | SF3B1_alpha 
    patientProcess$SF3B1_5q <- NA
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==0)] <- 0 # SF3B1 should be mutated for SF3B1_5q=1
-   patientProcess$SF3B1_5q[which(patientProcess$del5q==0)] <- 0 # del5q should be present for SF3B1_5q=1
-   patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & (patientProcess$del5q==0 | patientProcess$del7_7q==1 | patientProcess$complex==1))] <- 0
+   patientProcess$SF3B1_5q[which(patientProcess$del5q==0 | patientProcess$del7_7q==1 | patientProcess$complex==1)] <- 0 # if not isolated 5q then SF3B1_5q = 0 in any case
    patientProcess$SF3B1_5q[which(patientProcess$SF3B1==1 & patientProcess$del5q==1 & patientProcess$del7_7q==0 & patientProcess$complex==0)] <- 1
 
    patientProcess$SF3B1_alpha <- NA
    patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==0)] <- 0
-   patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==1 & (patientProcess$SF3B1_5q==1 |
+   patientProcess$SF3B1_alpha[which(patientProcess$SF3B1_5q==1 | # if one of those variables = 1 then SF3B1_alpha = 0 in any case
 				    patientProcess$SRSF2==1 | patientProcess$STAG2==1 |
 				    patientProcess$BCOR==1 | patientProcess$BCORL1==1 |
-				    patientProcess$RUNX1==1 | patientProcess$NRAS==1))] <- 0
+				    patientProcess$RUNX1==1 | patientProcess$NRAS==1)] <- 0
    patientProcess$SF3B1_alpha[which(patientProcess$SF3B1==1 & patientProcess$SF3B1_5q==0 &
 				    patientProcess$SRSF2==0 & patientProcess$STAG2==0 &
 				    patientProcess$BCOR==0 & patientProcess$BCORL1==0 &
