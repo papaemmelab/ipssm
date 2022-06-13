@@ -52,7 +52,7 @@ ddall <- IPSSMwrapper(path.file)
 
 ## :page_with_curl: Reference
 
-Bernard E, Tuechler H, Greenberg PL, Hasserjian RP, Arango Ossa JE et al. **Molecular International Prognostic Scoring System for myelodysplastic syndromes**. *in press*.
+[Bernard E, Tuechler H, Greenberg PL, Hasserjian RP, Arango Ossa JE et al. Molecular International Prognostic Scoring System for myelodysplastic syndrome, *NEJM Evidence* 2022.](https://evidence.nejm.org/doi/full/10.1056/EVIDoa2200008)
 
 
 ## :four_leaf_clover: Other
