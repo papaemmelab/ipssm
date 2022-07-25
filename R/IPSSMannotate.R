@@ -20,7 +20,7 @@
 
 IPSSMannotate <- function(patientResult, range.max=1) {
 
-   cat("Annotating IPSS-M results")
+   cat("Annotating IPSS-M results\n")
 
    # IPSSM score and cat unified results
    patientResult$IPSSMscore <- NA

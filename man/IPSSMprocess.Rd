@@ -8,6 +8,7 @@ IPSSMprocess(
   patientInput,
   genesRes = c("BCOR", "BCORL1", "CEBPA", "ETNK1", "GATA2", "GNB1", "IDH1", "NF1",
     "PHF6", "PPM1D", "PRPF8", "PTPN11", "SETBP1", "STAG2", "WT1"),
+  maxvafloh = 0.55,
   Nref = 0.388
 )
 }
