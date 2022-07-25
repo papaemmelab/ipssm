@@ -5,7 +5,7 @@ on: [push]
 name: Run IPSS-M on example data
 
 jobs:
-  docker:
+  Testing:
     runs-on: ubuntu-latest
     container: rocker/verse:4.2.1
     steps:
