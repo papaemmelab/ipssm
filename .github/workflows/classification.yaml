@@ -1,0 +1,23 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+
+on: [push]
+
+name: Run IPSS-M on example data
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    container: rocker/verse:4.2.1
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          library(devtools)
+          test()
+        shell: Rscript {0}
+
+      - name: Upload results
+        uses: actions/upload-artifact@main
+        with:
+          name: results
+          path: report.html
