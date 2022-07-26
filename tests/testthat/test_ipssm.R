@@ -1,6 +1,4 @@
-library(testthat)
 library(ipssm)
-
 print(sessionInfo())
 
 test_that("ipssm examples are computed as expected", {
