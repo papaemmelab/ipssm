@@ -19,7 +19,7 @@ test_that("ipssm examples are computed as expected", {
   dd.annot <- IPSSMannotate(dd.res)
 
   # 5) Check expected results against actual results
-  expected_results = list(
+  expected_results <- list(
     pp347 = list(
       IPSSMscore = 0.31,
       IPSSMcat = "Moderate High",
@@ -42,6 +42,7 @@ test_that("ipssm examples are computed as expected", {
     )
   )
 
+  cat("\nRunning Tests:\n")
   for (patient in names(expected_results)) {
     for (field in names(expected_results[[patient]])) {
       actual_result <- dd.annot[dd.annot$ID == patient, field]
