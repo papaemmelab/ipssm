@@ -14,7 +14,7 @@ R Package for the Molecular International Prognostic Scoring System (IPSS-M) for
 # install devtools if you don't have it already for easy installation
 # install.packages("devtools")
 library(devtools)
-install_github("papaemmelab/ipssm")
+install_github("papaemmelab/ipssm",ref = "main")
 ```
 
 ## :boom: Usage
