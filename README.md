@@ -1,3 +1,9 @@
+<!-- badges: start -->
+[![classification](https://github.com/papaemmelab/ipssm/actions/workflows/classification.yaml/badge.svg)](https://github.com/papaemmelab/ipssm/actions/workflows/classification.yaml)
+
+[![R-CMD-check](https://github.com/papaemmelab/ipssm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/papaemmelab/ipssm/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # ipssm
 
 R Package for the Molecular International Prognostic Scoring System (IPSS-M) for Myelodysplastic Syndromes.

@@ -2,7 +2,7 @@
 
 on: [push]
 
-name: Run IPSS-M on example data
+name: Test IPSS-M classification
 
 jobs:
   Testing:
