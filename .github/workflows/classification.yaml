@@ -11,14 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: |
-          library(devtools)
-          install_local()
-          test()
+      - name: Install ipssm package and run tests
+        run: |
+          devtools::install_local()
+          devtools::test()
         shell: Rscript {0}
-
-      - name: Upload results
-        uses: actions/upload-artifact@main
-        with:
-          name: results
-          path: report.html
