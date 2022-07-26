@@ -74,5 +74,5 @@ IPSSMwrapper <- function(path.file,
   dd.res <- IPSSMmain(patientProcess = dd.process)
   dd.annot <- IPSSMannotate(patientResult = dd.res)
 
-  return(dd)
+  return(dd.annot)
 }

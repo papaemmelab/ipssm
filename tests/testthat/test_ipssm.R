@@ -1,22 +1,8 @@
 library(ipssm)
 print(sessionInfo())
 
-test_that("ipssm examples are computed as expected", {
 
-  # 1) Read and Validate File
-  path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm")
-  dd <- IPSSMread(path.file)
-
-  # 2) Process User Input Variables into Model Variables
-  dd.process <- IPSSMprocess(dd)
-
-  # 3) Calculate IPSS-M
-  dd.res <- IPSSMmain(dd.process)
-
-  # 4) Annotate Results
-  dd.annot <- IPSSMannotate(dd.res)
-
-  # 5) Check expected results against actual results
+assert_expected_results_were_obtained <- function(annot) {
   expected_results <- list(
     pp347 = list(
       IPSSMscore = 0.31,
@@ -43,7 +29,7 @@ test_that("ipssm examples are computed as expected", {
   cat("\nRunning Tests:\n")
   for (patient in names(expected_results)) {
     for (field in names(expected_results[[patient]])) {
-      actual_result <- dd.annot[dd.annot$ID == patient, field]
+      actual_result <- annot[annot$ID == patient, field]
       expected_result <- expected_results[[patient]][[field]]
 
       cat(paste("Field: ", field, "\n"))
@@ -52,4 +38,31 @@ test_that("ipssm examples are computed as expected", {
       expect_equal(actual_result, expected_result)
     }
   }
+}
+
+
+test_that("Run ipssm workflow by steps", {
+  path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm")
+
+  # 1) Read and Validate File
+  dd <- IPSSMread(path.file)
+
+  # 2) Process User Input Variables into Model Variables
+  dd.process <- IPSSMprocess(dd)
+
+  # 3) Calculate IPSS-M
+  dd.res <- IPSSMmain(dd.process)
+
+  # 4) Annotate Results
+  dd.annot <- IPSSMannotate(dd.res)
+
+  # Check expected results against actual results
+  assert_expected_results_were_obtained(dd.annot)
+})
+
+
+test_that("Run ipssm workflow using wrapper function", {
+  path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm")
+  annot <- IPSSMwrapper(path.file)
+  assert_expected_results_were_obtained(annot)
 })
