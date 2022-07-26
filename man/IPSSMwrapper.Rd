@@ -72,4 +72,5 @@ Function that reads, processes, calculates and annotates to output IPSS-M result
 path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm")
 ddres <- IPSSMwrapper(path.file)
 print(ddres)
+
 }

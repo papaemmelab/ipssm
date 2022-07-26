@@ -56,8 +56,9 @@ A result patient \code{data.frame}, same number of rows/patients as in \code{pat
 Main function of the IPSS-M model. It applies the IPSS-M on the patient processed clinical and molecular variables. It calculates the IPSS-M risk score and risk categories under the best, mean, and worst scenarios if some input data are missing. If no missing data, all scenarios are equal.
 }
 \examples{
-dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"),header=T)
-dd.process <- IPSSMprocess(patientInput=dd)
-dd.res <- IPSSMmain(patientProcess=dd.process)
-print(dd.res[,c(1,grep("IPSSM",colnames(dd.res)))])
+dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = TRUE)
+dd.process <- IPSSMprocess(patientInput = dd)
+dd.res <- IPSSMmain(patientProcess = dd.process)
+print(dd.res[, c(1, grep("IPSSM", colnames(dd.res)))])
+
 }

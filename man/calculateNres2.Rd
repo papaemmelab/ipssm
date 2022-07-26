@@ -25,13 +25,17 @@ A \code{vector} with the calculated number under the mean, best, and worst scena
 Performs the generalized calculation for the number of mutated residual genes per patient, with a cap at 2 in accordance to observed saturation, and adjusting for missing information.
 }
 \examples{
-vec <- rep(0,15) ; vec[1] <-1 # 1 mutated genes and no missing data
-names(vec) <- c("BCOR","BCORL1","CEBPA","ETNK1","GATA2","GNB1","IDH1","NF1","PHF6","PPM1D","PRPF8","PTPN11","SETBP1","STAG2","WT1")
-calculateNres2(patientRes=vec)
+vec <- rep(0, 15)
+vec[1] <- 1 # 1 mutated genes and no missing data
+names(vec) <- c("BCOR", "BCORL1", "CEBPA", "ETNK1", "GATA2", "GNB1", "IDH1", "NF1", "PHF6", "PPM1D", "PRPF8", "PTPN11", "SETBP1", "STAG2", "WT1")
+calculateNres2(patientRes = vec)
 
-vec1 <- vec ; vec1[2:3] <- NA # 1 mutated genes and 2 missing
-calculateNres2(patientRes=vec1) # scenarios are now different
+vec1 <- vec
+vec1[2:3] <- NA # 1 mutated genes and 2 missing
+calculateNres2(patientRes = vec1) # scenarios are now different
 
-vec2 <- vec1 ; vec2[4] <- 1 # 2 mutated genes and 2 missing
-calculateNres2(patientRes=vec2) # scenarios are equal, because the number is capped at 2 mutated genes
+vec2 <- vec1
+vec2[4] <- 1 # 2 mutated genes and 2 missing
+calculateNres2(patientRes = vec2) # scenarios are equal, because the number is capped at 2 mutated genes
+
 }
