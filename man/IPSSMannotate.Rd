@@ -18,9 +18,10 @@ An annotated patient \code{data.frame}, same number of rows/patients as in \code
 Consolidates the IPSS-M results to create single IPSSM score and IPSSM category columns. If the maximal range of IPSS-M risk score (worst-best) is below the allowed limit, then the IPSS-M results under the mean scenario are reported. Of course if no missing data, the IPSS-M values are fully certains.
 }
 \examples{
-dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"),header=T)
-dd.process <- IPSSMprocess(patientInput=dd)
-dd.res <- IPSSMmain(patientProcess=dd.process)
-dd.annot <- IPSSMannotate(patientResult=dd.res)
-print(dd.annot[,c("ID","IPSSMscore","IPSSMcat","Comment")])
+dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = TRUE)
+dd.process <- IPSSMprocess(patientInput = dd)
+dd.res <- IPSSMmain(patientProcess = dd.process)
+dd.annot <- IPSSMannotate(patientResult = dd.res)
+print(dd.annot[, c("ID", "IPSSMscore", "IPSSMcat", "Comment")])
+
 }

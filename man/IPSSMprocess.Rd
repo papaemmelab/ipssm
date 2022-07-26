@@ -17,6 +17,8 @@ IPSSMprocess(
 
 \item{genesRes}{a \code{vector} containing the names of the residual genes.}
 
+\item{maxvafloh}{maximum variant allele frequency (vaf) threshold to determine theres Loss of Heterozigosity (LOH).}
+
 \item{Nref}{the average reference value for min(Nres,2) where Nres is the number of mutated residual genes.}
 }
 \value{
@@ -26,7 +28,8 @@ A processed patient \code{data.frame}, same number of rows/patients as in \code{
 Process clinical and molecular user-defined variables to model-based variables.
 }
 \examples{
-dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"),header=T)
-dd.process <- IPSSMprocess(patientInput=dd)
+dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = TRUE)
+dd.process <- IPSSMprocess(patientInput = dd)
 print(dd.process)
+
 }

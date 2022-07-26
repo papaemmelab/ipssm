@@ -17,7 +17,7 @@
 #' @export IPSSMmain
 #'
 #' @examples
-#' dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = T)
+#' dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = TRUE)
 #' dd.process <- IPSSMprocess(patientInput = dd)
 #' dd.res <- IPSSMmain(patientProcess = dd.process)
 #' print(dd.res[, c(1, grep("IPSSM", colnames(dd.res)))])

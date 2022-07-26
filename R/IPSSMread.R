@@ -8,6 +8,7 @@
 #' @return A patient input \code{data.frame}.
 #'
 #' @export
+#' @importFrom utils tail read.csv read.table
 #'
 #' @examples
 #' path.file <- system.file("extdata", "IPSSMexample.csv", package = "ipssm")

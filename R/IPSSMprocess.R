@@ -4,6 +4,7 @@
 #'
 #' @param patientInput a patient \code{data.frame}, one patient per row, and variables as columns.
 #' @param genesRes a \code{vector} containing the names of the residual genes.
+#' @param maxvafloh maximum variant allele frequency (vaf) threshold to determine theres Loss of Heterozigosity (LOH).
 #' @param Nref the average reference value for min(Nres,2) where Nres is the number of mutated residual genes.
 #'
 #' @return A processed patient \code{data.frame}, same number of rows/patients as in \code{patientInput}, and with the processed variables as additional columns.
@@ -11,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = T)
+#' dd <- read.csv(system.file("extdata", "IPSSMexample.csv", package = "ipssm"), header = TRUE)
 #' dd.process <- IPSSMprocess(patientInput = dd)
 #' print(dd.process)
 #'

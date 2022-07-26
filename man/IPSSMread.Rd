@@ -23,5 +23,6 @@ dd <- IPSSMread(path.file)
 print(dd)
 
 path.file2 <- system.file("extdata", "IPSSMexample.xlsx", package = "ipssm")
-dd2 <- IPSSMread(path.file2, sheet=2) # equivalent 
+dd2 <- IPSSMread(path.file2, sheet = 2) # equivalent
+
 }
