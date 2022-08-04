@@ -14,5 +14,5 @@ jobs:
       - name: Install ipssm package and run tests
         run: |
           devtools::install_local()
-          devtools::test()
+          devtools::test(stop_on_failure=TRUE)
         shell: Rscript {0}
