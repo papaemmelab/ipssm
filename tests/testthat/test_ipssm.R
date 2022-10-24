@@ -23,6 +23,16 @@ assert_expected_results_were_obtained <- function(annot) {
       IPSSMcat_best = "Very High",
       IPSSMscore_worst = 4.55,
       IPSSMcat_worst = "Very High"
+    ),
+    zeroScore = list(
+      IPSSMscore = 0,
+      IPSSMcat = "Moderate Low",
+      IPSSMscore_mean = 0,
+      IPSSMcat_mean = "Moderate Low",
+      IPSSMscore_best = 0,
+      IPSSMcat_best = "Moderate Low",
+      IPSSMscore_worst = 0,
+      IPSSMcat_worst = "Moderate Low"
     )
   )
 
